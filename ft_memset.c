@@ -6,18 +6,20 @@
 /*   By: nandre-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 16:57:48 by nandre-f          #+#    #+#             */
-/*   Updated: 2021/11/09 18:01:57 by nandre-f         ###   ########.fr       */
+/*   Updated: 2021/11/10 16:54:42 by nandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void    *ft_memset(void *dest, int ch, size_t len)
+#include "libft.h"
+
+void    *ft_memset(void *dest, int c, size_t len)
 {
     char    *temp;
 
     if (!(dest))
-        return (null);
-    temp = ch;
+        return (NULL);
+    temp = dest;
     while (len--)
-        *temp++ = ch;
+        *temp++ = c;
     return (dest);
 }
