@@ -8,7 +8,7 @@ LIB = ar rc
 RM = rm -f
 RL = ranlib
 
-SRCS = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_memset.c ft_strlen.c ft_bzero
+SRCS = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_memset.c ft_strlen.c ft_bzero ft_memcpy.c ft_memmove.c ft_strlcpy.c
 
 .c.o:
 	${CC} ${FLAGS} -c $< -o ${<:.c=.o} -I.${INS}
