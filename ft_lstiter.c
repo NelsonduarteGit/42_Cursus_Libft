@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nandre-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 18:00:32 by nandre-f          #+#    #+#             */
-/*   Updated: 2022/03/18 18:57:35 by nandre-f         ###   ########.fr       */
+/*   Created: 2022/03/18 19:48:25 by nandre-f          #+#    #+#             */
+/*   Updated: 2022/03/18 19:49:03 by nandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_strtrim(char const *s1, char const *set)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-    size_t	i;
+	t_list	*save;
 
-	if (!s1 || !set)
-		return (0);
-	while (*s1 && ft_strchr(set, *s1))
-		s1++;
-	i = ft_strlen(s1);
-	while (i && ft_strchr(set, s1[i]))
-		i--;
-	return (ft_substr(s1, 0, i + 1));
+	save = lst;
+	while (save != NULL)
+	{
+		f(save->content);
+		save = save -> next;
+	}
 }
