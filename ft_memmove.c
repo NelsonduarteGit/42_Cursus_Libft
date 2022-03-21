@@ -3,37 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nandre-f <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nandre-f <nandre-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 18:29:54 by nandre-f          #+#    #+#             */
-/*   Updated: 2021/11/11 10:19:51 by nandre-f         ###   ########.fr       */
+/*   Updated: 2022/03/21 11:58:05 by nandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memmove(void *dest, const void *src, size_t len)
+void	*ft_memmove(void *dest, const void *src, size_t len)
 {
-    size_t a;
+	char		*temp;
+	const char	*s;
 
-    a = 0;
-    if (!dest && !src)
-		return (0);
-    if ((size_t)dest - (size_t)src < len)
+	if (!dest && !src)
+		return (NULL);
+	if (dest <= src)
 	{
-		a = len - 1;
-		while (a < len)
-		{
-			((unsigned char *)dest)[a] = ((unsigned char *)src)[a];
-			a--;
-		}
+		temp = dest;
+		s = src;
+		while (len--)
+			*temp++ = *s++;
 	}
-
-    else
-        while (a > len)
-        {
-            ((unsigned char *)dest)[a] = ((unsigned char *)src)[a];
-            len--;
-        }
-    return (dest);
+	else
+	{
+		temp = dest;
+		temp += len;
+		s = src;
+		s += len;
+		while (len--)
+			*--temp = *--s;
+	}
+	return (dest);
 }

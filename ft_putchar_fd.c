@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nandre-f <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nandre-f <nandre-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 18:56:04 by nandre-f          #+#    #+#             */
-/*   Updated: 2022/03/18 19:33:14 by nandre-f         ###   ########.fr       */
+/*   Updated: 2022/03/21 12:14:52 by nandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ void	ft_putchar_fd(char c, int fd)
 {
 	if (fd < 0)
 		return ;
-	write(fd, &c, 1);
+	write (fd, &c, 1);
 }

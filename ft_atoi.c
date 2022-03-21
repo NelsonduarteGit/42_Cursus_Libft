@@ -3,36 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nandre-f <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nandre-f <nandre-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 15:29:20 by nandre-f          #+#    #+#             */
-/*   Updated: 2022/01/24 11:18:40 by nandre-f         ###   ########.fr       */
+/*   Updated: 2022/03/21 11:51:02 by nandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int atoi(const char *str)
+int	ft_isspace(char c)
 {
-    int a;
-    int neg;
-    int result;
+	if (c == ' ' || c == '\n' || c == '\t' || c == '\v'
+		|| c == '\f' || c == '\r')
+		return (1);
+	else
+		return (0);
+}
 
-    a = 0;
-    result = 0;
+int	ft_atoi(const char *str)
+{
+	int	nbr;
+	int	sign;
+	int	i;
 
-    while (str[a] == ' ' || str[a] == '\n' || str[a] == '\t' || str[a] == '\v' || str[a] == '\f' || str[a] == '\r')
-        a++;
-    while (str[a] == '+' || str[a] == '-')
-    {
-        if (str[a] == '-')
-            neg = -1;
-        a++;
-    }
-    while (str[a] >= '0' && str[a] <= '9')
-    {
-       result = (result * 10) + (str[a] - '0');
-       a++;
-    } 
-    return (result * neg);
+	nbr = 0;
+	sign = 1;
+	i = 0;
+	while ((str[i] != '\0') && ft_isspace(str[i]) == 1)
+		i++;
+	if (str[i] == '-')
+		sign = -1;
+	if ((str[i] == '-') || (str[i] == '+'))
+		i++;
+	while ((str[i] != '\0') && ('0' <= str[i]) && (str[i] <= '9'))
+	{
+		nbr = (nbr * 10) + (str[i] - '0');
+		i++;
+	}
+	return (sign * nbr);
 }

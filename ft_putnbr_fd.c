@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nandre-f <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nandre-f <nandre-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 19:00:48 by nandre-f          #+#    #+#             */
-/*   Updated: 2022/03/18 19:33:06 by nandre-f         ###   ########.fr       */
+/*   Updated: 2022/03/21 12:14:50 by nandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ void	ft_putnbr_fd(int n, int fd)
 	{
 		str = '0' + n;
 	}
-	write(fd, &str, 1);
+	write (fd, &str, 1);
 }
